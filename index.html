@@ -134,12 +134,24 @@
 
         .img-placeholder {
             width: 100%;
-            aspect-ratio: 16/9;
-            background: #050505;
+            aspect-ratio: 1/1;           /* Changes the box to a square to match your 500x500 image */
+            background-image: url(assests/silent_Witness_Icon.png);
+            background-size: contain;    /* Shows the whole image */
+            background-position: center;
+            background-repeat: no-repeat;
             margin-bottom: 1.5rem;
             border: 1px solid var(--border-line);
         }
-
+        .img-placeholder-2 {
+            width: 100%;
+            aspect-ratio: 1/1;           /* Changes the box to a square to match your 500x500 image */
+            background-image: #000000;
+            background-size: contain;    /* Shows the whole image */
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-line);
+        }
         .card h2 { margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; }
         .card p { color: var(--text-dim); margin-bottom: 2rem; font-size: 0.95rem; }
 
@@ -209,6 +221,7 @@
     <nav>
         <div class="logo">Abnormal Studio</div>
         <div class="nav-links">
+            <a href="#">Home</a>
             <a href="#games-section">Games</a>
             <a href="#contact-section">Contact</a>
             <a href="https://www.fab.com/sellers/Abnormal%20Studio" target="_blank">Fab Store</a>
@@ -224,13 +237,13 @@
         <div class="grid">
             <article class="card">
                 <div class="img-placeholder"></div>
-                <h2>The Silent Witness</h2>
+                <h2>Silent Witness</h2>
                 <p>You’re a detective tracking a brutal murder. The forest holds the documents. The warehouse hides the.....</p>
                 <a href="https://store.steampowered.com/app/3720920/The_Silent_Witness/" class="btn" target="_blank">Buy Now</a>
             </article>
 
             <article class="card">
-                <div class="img-placeholder"></div>
+                <div class="img-placeholder-2"></div>
                 <h2>Grinny's Playhouse</h2>
                 <p>Our upcoming title is currently in active development.</p>
                 <a href="#" class="btn">Under Construction</a>
