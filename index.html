@@ -1,280 +1,540 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="icon" type="image/x-icon" href="assests/favicon_.png">
+
     <title>Abnormal Studio</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
+
     html {
+
             scroll-behavior: smooth;
+
         }
+
         :root {
+
             --bg-base: #000000;
+
             --bg-section: #0a0a0a;
+
             --bg-card: #141414;
+
             --border-line: #222222;
+
             --text-main: #ffffff;
+
             --text-dim: #999999;
+
         }
+
 
         /* Standardize layout - Normal Cursor */
+
         * { 
+
             margin: 0; 
+
             padding: 0; 
+
             box-sizing: border-box; 
+
             font-family: 'Inter', 'Helvetica', sans-serif; 
+
         }
+
 
         body {
+
             background-color: var(--bg-base);
+
             color: var(--text-main);
+
             line-height: 1.6;
+
             overflow-x: hidden;
+
             text-align: center; /* Centers text globally */
+
         }
+
 
         /* Subtle Static Grain */
+
         body::after {
+
             content: "";
+
             position: fixed;
+
             top: 0; left: 0; width: 100%; height: 100%;
+
             background: url('https://www.transparenttextures.com/patterns/stardust.png');
+
             opacity: 0.03;
+
             pointer-events: none;
+
             z-index: 1000;
+
         }
+
 
         /* Icon Pulsate Animation */
+
         @keyframes iconPulse {
+
             0% { transform: scale(1); opacity: 0.8; }
+
             50% { transform: scale(1.15); opacity: 1; }
+
             100% { transform: scale(1); opacity: 0.8; }
+
         }
+
 
         .pulsate {
+
             display: inline-block;
+
             animation: iconPulse 3s infinite ease-in-out;
+
         }
+
 
         /* Nav - Centered */
+
         nav {
+
             position: sticky;
+
             top: 0;
+
             background: rgba(0, 0, 0, 0.9);
+
             backdrop-filter: blur(10px);
+
             padding: 1.5rem 0;
+
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
+
             gap: 1rem;
+
             border-bottom: 1px solid var(--border-line);
+
             z-index: 1100;
+
         }
+
         .logo { font-weight: 900; letter-spacing: 3px; text-transform: uppercase; font-size: 1.2rem; }
+
         .nav-links { display: flex; gap: 2rem; }
+
         .nav-links a { 
+
             color: var(--text-dim); 
+
             text-decoration: none; 
+
             font-size: 0.75rem; 
+
             text-transform: uppercase; 
+
             font-weight: 600; 
+
             transition: color 0.3s;
+
         }
+
         .nav-links a:hover { color: #fff; }
 
+
         /* Hero - Centered */
+
         header {
+
             padding: 12rem 5% 10rem 5%;
+
             background: linear-gradient(to bottom, var(--bg-base), var(--bg-section));
+
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
+
         }
+
         h1 { font-size: clamp(2.5rem, 7vw, 5rem); line-height: 1.1; text-transform: uppercase; font-weight: 900; max-width: 900px; }
 
+
         /* Games Section - Centered Grid */
+
         #games-section {
+
             padding: 6rem 10%;
+
             background-color: var(--bg-section);
+
             border-top: 1px solid var(--border-line);
+
         }
+
         .label { 
+
             color: var(--text-dim); 
+
             text-transform: uppercase; 
+
             letter-spacing: 4px; 
+
             font-size: 0.75rem; 
+
             margin-bottom: 3rem; 
+
             display: block;
+
         }
+
 
         .grid {
+
             display: flex;
+
             flex-wrap: wrap;
+
             justify-content: center;
+
             gap: 2rem;
+
             max-width: 1200px;
+
             margin: 0 auto;
+
         }
+
 
         .card {
+
             background-color: var(--bg-card);
+
             padding: 2.5rem;
+
             border: 1px solid var(--border-line);
+
             transition: all 0.3s ease;
+
             max-width: 450px;
+
             width: 100%;
+
         }
+
         .card:hover {
+
             border-color: #444;
+
             transform: translateY(-8px);
+
             background-color: #1a1a1a;
+
         }
+
 
         .img-placeholder {
+
             width: 100%;
+
             aspect-ratio: 1/1;           /* Changes the box to a square to match your 500x500 image */
+
             background-image: url(assests/silent_Witness_Icon.png);
+
             background-size: contain;    /* Shows the whole image */
+
             background-position: center;
+
             background-repeat: no-repeat;
+
             margin-bottom: 1.5rem;
+
             border: 1px solid var(--border-line);
+
         }
+
         .img-placeholder-2 {
+
             width: 100%;
+
             aspect-ratio: 1/1;           /* Changes the box to a square to match your 500x500 image */
+
             background-image: #000000;
+
             background-size: contain;    /* Shows the whole image */
+
             background-position: center;
+
             background-repeat: no-repeat;
+
             margin-bottom: 1.5rem;
+
             border: 1px solid var(--border-line);
+
         }
+
         .card h2 { margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+
         .card p { color: var(--text-dim); margin-bottom: 2rem; font-size: 0.95rem; }
 
+
         /* Buttons */
+
         .btn {
+
             background: #fff;
+
             color: #000;
+
             padding: 1rem 2rem;
+
             text-decoration: none;
+
             font-weight: 900;
+
             text-transform: uppercase;
+
             font-size: 0.75rem;
+
             display: inline-block;
+
             transition: transform 0.2s;
+
         }
+
         .btn:hover { transform: scale(1.05); }
 
+
         /* Contact Section - Centered */
+
         #contact-section {
+
             padding: 8rem 10%;
+
             background-color: var(--bg-base);
+
             border-top: 1px solid var(--border-line);
+
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
+
         }
+
         .contact-info { max-width: 600px; }
+
         .contact-info h2 { font-size: clamp(2.5rem, 5vw, 3.5rem); text-transform: uppercase; margin-bottom: 1rem; }
+
         .email-link { font-size: clamp(1rem, 3vw, 1.5rem); color: #fff; text-decoration: underline; margin-bottom: 2.5rem; display: block; }
+
         .socials { display: flex; justify-content: center; gap: 2rem; }
+
         .socials a { color: var(--text-dim); font-size: 2rem; transition: 0.3s; }
+
         .socials a:hover { color: #fff; transform: translateY(-5px); }
 
+
         /* Footer & Legal - Centered */
+
         footer {
+
             padding: 4rem 5%;
+
             background-color: var(--bg-base);
+
             border-top: 1px solid var(--border-line);
+
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
+
             gap: 2rem;
+
         }
+
         .copy { font-size: 0.8rem; color: #555; }
+
         .legal { display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap; }
+
         .legal a { 
+
             color: #fff; 
+
             text-decoration: none; 
+
             font-size: 0.8rem; 
+
             font-weight: 600;
+
             display: flex;
+
             align-items: center;
+
             gap: 10px;
+
             transition: opacity 0.3s;
+
         }
+
         .legal a:hover { opacity: 0.6; }
 
+
         @media (max-width: 600px) {
+
             header { padding-top: 8rem; }
+
             .nav-links { gap: 1rem; }
+
             .nav-links a { font-size: 0.65rem; }
+
         }
+
     </style>
+
 </head>
+
 <body>
 
+
     <nav>
+
         <div class="logo">Abnormal Studio</div>
+
         <div class="nav-links">
+
             <a href="#">Home</a>
+
             <a href="#games-section">Games</a>
+
             <a href="#contact-section">Contact</a>
+
             <a href="https://www.fab.com/sellers/Abnormal%20Studio" target="_blank">Fab Store</a>
+
         </div>
+
     </nav>
 
+
     <header>
+
         <h1>Immersive.<br>Unique.<br>Abnormal.</h1>
+
     </header>
 
+
     <section id="games-section">
+
         <span class="label">Games</span>
+
         <div class="grid">
-            <article class="card">
-                <div class="img-placeholder"></div>
-                <h2>Silent Witness</h2>
-                <p>You’re a detective tracking a brutal murder. The forest holds the documents. The warehouse hides the.....</p>
-                <a href="https://store.steampowered.com/app/3720920/The_Silent_Witness/" class="btn" target="_blank">Buy Now</a>
-            </article>
 
             <article class="card">
-                <div class="img-placeholder-2"></div>
-                <h2>Grinny's Playhouse</h2>
-                <p>Our upcoming title is currently in active development.</p>
-                <a href="#" class="btn">Under Construction</a>
+
+                <div class="img-placeholder"></div>
+
+                <h2>Silent Witness</h2>
+
+                <p>You’re a detective tracking a brutal murder. The forest holds the documents. The warehouse hides the.....</p>
+
+                <a href="https://store.steampowered.com/app/3720920/The_Silent_Witness/" class="btn" target="_blank">Buy Now</a>
+
             </article>
+
+
+            <article class="card">
+
+                <div class="img-placeholder-2"></div>
+
+                <h2>Grinny's Playhouse</h2>
+
+                <p>Our upcoming title is currently in active development.</p>
+
+                <a href="#" class="btn">Under Construction</a>
+
+            </article>
+
         </div>
+
     </section>
+
 
     <section id="contact-section">
+
         <div class="contact-info">
+
             <h2>Get in Contact.</h2>
+
             <p style="color: var(--text-dim); margin-bottom: 2rem;">Inquiries, feedback, or technical support.</p>
+
             <a href="mailto:abnormalstudio2021@gmail.com" class="email-link">abnormalstudio2021@gmail.com</a>
+
             <div class="socials">
+
                 <a href="https://x.com/AbnormalStudio7" target="_blank" class="pulsate"><i class="fa-brands fa-x-twitter"></i></a>
+
                 <a href="https://www.youtube.com/@abnormalStudio2021" target="_blank" class="pulsate"><i class="fa-brands fa-youtube"></i></a>
+
                 <a href="https://www.fab.com/sellers/Abnormal%20Studio" target="_blank" class="pulsate"><i class="fa-solid fa-store"></i></a>
+
             </div>
+
         </div>
+
     </section>
 
+
     <footer>
+
         <div class="copy">&copy; 2026 Abnormal Studio.</div>
+
         <div class="legal">
+
             <a href="privacy_policy.html">
+
                 <i class="fa-solid fa-shield-halved pulsate"></i> Privacy Policy
+
             </a>
+
             <a href="termsOfService.html">
+
                 <i class="fa-solid fa-file-contract pulsate"></i> Terms & Conditions
+
             </a>
+
         </div>
+
     </footer>
 
+
 </body>
+
 </html>
+
+
+
